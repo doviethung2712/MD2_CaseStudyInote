@@ -61,7 +61,17 @@ switch ($page){
         $noteController->getAll();
         break;
     case "note-create":
-        $noteController->create($_POST);
+        $noteController->create();
+        break;
+    case "note-delete":
+        $noteController->delete();
+        break;
+    case "note-update":
+        $noteController->update();
+        break;
+    case "note-show":
+        $noteController->show();
+        break;
     default:
 }
 

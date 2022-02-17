@@ -7,7 +7,7 @@
         <th>Title</th>
         <th>Content</th>
         <th>Phân Loại</th>
-        <th colspan="2" style="text-align: center">Action</th>
+        <th colspan="3" style="text-align: center">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -19,7 +19,8 @@
                 <td><?php echo $data->content ?></td>
                 <td><?php echo $data->notename ?></td>
                 <td><a href="index.php?page=note-update&id=<?php echo $data->id ?>">Update</a></td>
-                <td><a href="index.php?page=note-delete&id=<?php echo $data->id ?>">Delete</a></td>
+                <td><a onclick="return confirm('Bạn có chắc không ?')" href="index.php?page=note-delete&id=<?php echo $data->id ?>">Delete</a></td>
+                <td><a href="index.php?page=note-show&id=<?php echo $data->id ?>">Show</a></td>
             </tr>
             <?php endforeach;
         } ?>
