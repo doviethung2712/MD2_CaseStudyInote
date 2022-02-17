@@ -17,7 +17,8 @@ class NoteController
     public function getAll()
     {
         $datas = $this->noteController->getAll();
-
+//        var_dump($datas);
+//        die();
         include 'App/view/list.php';
     }
 
