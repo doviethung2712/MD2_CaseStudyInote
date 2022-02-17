@@ -17,7 +17,7 @@ class NoteController
     public function getAll()
     {
         $datas = $this->noteController->getAll();
-        include 'App/view/list.php';
+        include 'App/view/note/list.php';
     }
 
     public function create()
@@ -25,7 +25,7 @@ class NoteController
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $noteTypeModel = new NoteTypeModel();
             $noteType = $noteTypeModel->getAll();
-            include "App/view/create.php";
+            include "App/view/note/create.php";
         } else {
             $this->noteController->create($_POST);
         }
@@ -44,19 +44,17 @@ class NoteController
             $noteTypeModel = new NoteTypeModel();
             $noteType = $noteTypeModel->getAll();
             $data = $note->getById($_GET["id"]);
-            include "App/view/update.php";
-        }else{
-            $this->noteController->update($_REQUEST["id"],$_POST);
+            include "App/view/note/update.php";
+        } else {
+            $this->noteController->update($_REQUEST["id"], $_POST);
 
         }
     }
 
     public function show()
     {
-       $data = $this->noteController->showById($_GET["id"]);
-//       var_dump($data);
-//       die();
-        include "App/view/show.php";
+        $data = $this->noteController->showById($_GET["id"]);
+        include "App/view/note/show.php";
 
     }
 }
