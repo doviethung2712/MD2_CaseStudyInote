@@ -68,7 +68,7 @@ $page = $_GET["page"] ?? "";
             $noteController->getAll();
             break;
         case "note-create":
-            $noteController->create();
+            $noteController->create($_POST);
             break;
         case "note-delete":
             $noteController->delete();

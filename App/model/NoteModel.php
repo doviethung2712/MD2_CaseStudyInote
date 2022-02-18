@@ -16,7 +16,7 @@ class NoteModel
     public function getAll()
     {
         $sql = "select note.id as id, note.title as title, note.content as content, 
-                note.type_id as type_id, note_type.name as notename , note_type.id as idnotetype from note 
+                note.type_id as type_id, note_type.name as notename , note_type.id as idnotetype , img from note 
                 join note_type on note.type_id = note_type.id";
         $stmt = $this->connect->query($sql);
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
@@ -24,13 +24,14 @@ class NoteModel
 
     public function create($data)
     {
-        $sql = "INSERT INTO note (title,content,type_id) VALUES (?,?,?)";
+        $sql = "INSERT INTO note ( title, content, type_id, img) VALUES (?,?,?,?)";
         $stmt = $this->connect->prepare($sql);
         $stmt->bindParam(1, $data['title']);
         $stmt->bindParam(2, $data['content']);
         $stmt->bindParam(3, $data['type_id']);
+        $stmt->bindParam(4, $data["image"]);
         $stmt->execute();
-        header("location:index.php?page=note-list");
+
     }
 
     public function delete($id)

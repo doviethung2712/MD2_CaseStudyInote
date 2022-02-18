@@ -3,6 +3,7 @@
     <thead>
     <tr>
         <th>STT</th>
+        <th>IMG</th>
         <th>Title</th>
         <th>Content</th>
         <th><a href="index.php?page=note-create-type" >Phân Loại</a></th>
@@ -12,8 +13,10 @@
     <tbody>
     <?php if (!empty($datas)) {
         foreach ($datas as $key => $data):?>
+
             <tr>
                 <td><?php echo $key + 1 ?></td>
+                <td style="padding: 5px;"><img width="100px" src="<?php echo $data->img?>" alt=""></td>
                 <td><?php echo $data->title ?></td>
                 <td><?php echo $data->content ?></td>
                 <td><a href="index.php?page=note-update-type&id=<?php echo $data->idnotetype ?>"><?php echo $data->notename ?></a></td>
